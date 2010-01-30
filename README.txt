@@ -17,8 +17,9 @@ Thank you for downloading Nella!
 The files in this archive are released under the New-BSD license.
 See nella.txt in license directory for a copy of the license.
 
-Import install.sql to your database, allow write permisions to "log,temp,session"
-directories in app dir. now edit your config.ini for your database settings
+Import install.sql to your database, allow write permisions to
+"log,temp,session,images" directories in app dir and "images"
+in document_root dir. Now edit your config.ini for your database settings
 now you can run administration in dir /admin. Default user name
 is: "admin" and password is: "demo123"
 
