@@ -1,0 +1,51 @@
+{widget $form begin}
+
+{* hidden fields *}
+<div n:foreach="$form->getComponents(TRUE, 'Nette\Forms\HiddenField') as $control">
+{$control->control}
+{if $control->errors}
+    {foreach $control->errors as $error}
+	<p class="error">{$error}</p>
+	{/foreach}
+{/if}
+</div>
+
+{* errors * }
+{if $form->errors}
+{foreach $form->errors as $error}
+<p class="flash-message error">{$error}</p>
+{/foreach}
+{/if}*}
+
+{* groups *}
+<fieldset n:foreach="$form->groups as $group" n:if="$group->controls && $group->getOption('visual')" n:block="#group">
+    {ifset $group->options['label']}<legend>{$group->options['label']}</legend>{/if}
+    {ifset $group->options['description']}<p>{$group->options['description']}</p>{/if}
+
+    {block #controls}
+	    {foreach $group->controls as $control}
+		    {if !$control->getOption('rendered')}
+			    {block #pair}
+        			{block #label}
+        				{if $control instanceof Nette\Forms\Button || $control instanceof Nette\Forms\Checkbox}{else}{!$control->label}{/if}
+        			{/block}
+        			{block #control}
+        				{if $control instanceof Nette\Forms\Checkbox || $control instanceof Nette\Forms\RadioList}<div class="list">{/if}
+        				{!$control->control}{if $control instanceof Nette\Forms\Checkbox}{!$control->label}{/if}
+        				{if $control instanceof Nette\Forms\Checkbox || $control instanceof Nette\Forms\RadioList}</div>{/if}
+        				{if $control->errors}
+        					{foreach $control->errors as $error}
+							<p class="error">{$error}</p>
+							{/foreach}
+        				{/if}
+        			{/block}
+			    {/block}
+		    {/if}
+	    {/foreach}
+    {/block}
+</fieldset>
+
+{* non-group *}
+{include #controls, group => $form}
+
+{widget $form end}

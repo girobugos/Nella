@@ -1,0 +1,19 @@
+<script type="text/javascript" src="{$basePath}/js/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="{$basePath}/js/ckeditor/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".editor").ckeditor(config = {
+		toolbar:
+		[
+			['Source', '-', 'Cut','Copy','Paste','PasteText','PasteFromWord','-','SpellChecker', 'Scayt'],
+			['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+			['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
+			['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
+			['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+			['Link','Unlink','Anchor'],
+			['Image','Table','HorizontalRule','SpecialChar'],
+		],
+		language: {$lang}
+	});
+});
+</script>

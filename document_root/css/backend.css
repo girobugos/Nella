@@ -1,0 +1,524 @@
+/**
+ * Nella
+ *
+ * Copyright (c) 2006, 2010 Patrik Votoček (http://patrik.votocek.cz)
+ *
+ * This source file is subject to the "New BSD license" that is bundled
+ * with this package in the file nella.txt.
+ *
+ * For more information please see http://nellacms.com
+ *
+ * @copyright  Copyright (c) 2006, 2010 Patrik Votoček
+ * @license    http://nellacms.com/license  New BSD license
+ * @link       http://nellacms.com
+ * @category   Nella
+ * @package    Nella
+ */
+
+*{outline: none; }
+html, body {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	background: #1a1a1a url("../images/layout/bg.gif") left top repeat scroll;
+	color: #fff;
+	font-family:Helvetica,Arial,sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+}
+a:hover, a:active, a:focus {
+	text-decoration: underline !important;
+}
+#central-container {
+	position: relative;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+#header-container {
+	color: #fff;
+	width: 100%;
+	height: 46px;
+	padding: 2px 0;
+	background-image: url("../images/layout/top-bg.png");
+	background-repeat: repeat-x;
+	background-position: bottom;
+	color: #ccc;
+	font-size: 0.8em;
+}
+#left-container {
+	width: 210px;
+	color: #fff;
+	float: left;
+	padding: 20px;
+}
+#content-container {
+	margin-left: 220px;
+	padding: 33px;
+}
+#footer-container {
+	color: #fff;
+	width: 100%;
+	padding: 2px 0;
+	background-image: url("../images/layout/bottom-bg.png");
+	background-repeat: repeat-x;
+	color: #ccc;
+	font-size: 0.8em;
+	
+	position: absolute;
+	bottom: 0 !important;
+	bottom: -1px;
+	height: 46px;
+}
+#header-container h1.webinfo {
+	float: left;
+	margin: 4px 20px;
+}
+#header-container .userinfo {
+	float: right;
+	text-align: right;
+	margin-right: 10px;
+}
+#footer-container .thanks {
+	float: left;
+	margin-left: 10px;
+}
+#footer-container .version {
+	float: right;
+	text-align: right;
+	margin-right: 10px;
+}
+#header-container a, #footer-container a {
+	color: #fff;
+	text-decoration: none;
+}
+#content-container .content-title {
+	height: 70px;
+}
+#content-container h1 {
+	font-size: 1.8em;
+	float: left;
+}
+#content-container a {
+	color: #ddd;
+	text-decoration: none;
+}
+
+.content-box {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	color: #222;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-khtml-border-radius: 6px;
+	border-radius: 6px;
+	margin-bottom: 50px;
+}
+.content-box h2 {
+	font-size: 1.15em;
+	margin: 0;
+	padding: 10px 20px;
+	background: #e6e6e6 url("../images/layout/content-header-bg.gif") left top repeat-x scroll;
+	-moz-border-radius: 6px 6px 0 0;
+	-webkit-border-radius: 6px 6px 0 0;
+	-khtml-border-radius: 6px 6px 0 0;
+	border-radius: 6px 6px 0 0;
+}
+#content-inner {
+	padding: 20px;
+	color: #555;
+}
+#content-inner a {
+	color: #3b3b3b;
+}
+#content-container p.perex {
+	float: right;
+	text-align: right;
+	margin: 30px 10px 0 0;
+}
+#content-container p a.add {
+	background-image: url("../images/layout/icons/add-16.png");
+	background-repeat: no-repeat;
+	padding-left: 25px;
+	display: block;
+}
+
+#logo {
+	width: 200px;
+	height: 62px;
+	background-image: url("../images/layout/logo-small.png");
+	background-repeat: no-repeat;
+	margin: 0 0 25px 0;
+	padding: 0;
+}
+#logo span {
+	display: none;
+}
+#left-container ul, #left-container ul li {
+	display: block;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+#left-container ul li a {
+	background: #004A95 url("../images/layout/root-menu-bg.png") left top no-repeat scroll;
+	color: #fff;
+	display: block;
+	padding: 7px;
+	width: 192px;
+	height: 19px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	border-radius: 4px;
+	margin-bottom: 15px;
+	text-decoration: none;
+}
+#left-container ul li a:hover, #left-container ul li a:active, #left-container ul li a:focus {
+	padding-left: 20px;
+	width: 179px;
+	text-decoration: none !important;
+}
+#left-container ul li.active a {
+	background-color: #fff;
+	background-image: none;
+	color: #000;
+}
+#left-container ul li.active ul li a {
+	font-size: 0.9em;
+	background-color: transparent;
+	width: auto;
+	height: auto;
+	padding: 0 7px;
+	color: #ddd;
+}
+#left-container ul li.active ul li a:hover, #left-container ul li.active ul li a:active, #left-container ul li.active ul li a:focus {
+	padding-left: 20px;
+	font-weight: bold;
+	color: #fff;
+}
+#left-container ul li.active ul li.active a {
+	font-weight: bold;
+}
+
+form label {
+	font-weight: bold;
+	font-size: 0.8em;
+	margin: 15px 0 5px 0;
+	display: block;
+}
+input, select, textarea {
+	border: 1px solid #ccc;
+	display: block;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	border-radius: 4px;
+}
+input[type=hidden] {
+	display: none;
+}
+input[type=text],input[type=password], select {
+	padding: 5px;
+}
+input[type=button],input[type=submit] {
+	background: #3b3b3b url("../images/layout/button-bg.gif") left top repeat-x scroll !important;
+	border: 1px solid #7b7b7b !important;
+	display: inline-block;
+	padding: 4px 7px;
+	color: #fff;
+	cursor: pointer;
+	font-size: 0.9em;
+	margin-top: 20px;
+}
+input[type=button]:hover,input[type=submit]:hover,input[type=button]:active,input[type=submit]:active,input[type=button]:focus,input[type=submit]:focus {
+	text-decoration: underline;
+}
+textarea {
+	width: 100%;
+}
+form .list input {
+	display: inline-block !important;
+}
+form .list label {
+	display: inline;
+	font-weight: normal;
+}
+
+form p.ok, form p.error {
+	color: #4F8A10;
+	margin: 3px 0;
+	font-size: 0.8em;
+	background-image: url("../images/layout/icons/ok-16.png");
+	background-repeat: no-repeat;
+	background-position: left middle;
+	padding: 0 0 0 20px;
+}
+form p.error {
+	color: #D8000C;
+	background-image: url("../images/layout/icons/error-16.png");
+}
+
+.flash-message.ok, .flash-message.info, .flash-message.caution, .flash-message.warning, .flash-message.error, .flash-message.download, .flash-message.tip, .flash-message.safety, .flash-message.help, .flash-message.pin {
+	background: #DFF2BF url("../images/layout/icons/ok.png") no-repeat scroll 10px center;
+	color: #4F8A10;
+	min-height:32px;
+	padding:10px 10px 10px 52px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+	margin-bottom: 5px;
+}
+.flash-message.warning, .flash-message.tip, .flash-message.safety {
+	background-color: #FEEFB3;
+	background-image: url("../images/layout/icons/warning.png");
+	color: #9F6000;
+}
+.flash-message.tip {
+	background-image: url("../images/layout/icons/tip.png");
+}
+.flash-message.safety {
+	background-image: url("../images/layout/icons/safety.png");
+}
+.flash-message.caution, .flash-message.error {
+	background-color: #FFBABA;
+	background-image: url("../images/layout/icons/caution.png");
+	color: #D8000C;
+}
+.flash-message.error {
+	background-image: url("../images/layout/icons/error.png");
+}
+.flash-message.info, #content-inner .flash-message.help, #content-inner .flash-message.pin, #content-inner .flash-message.download {
+	background-color: #C6DBFF;
+	background-image: url("../images/layout/icons/info.png");
+	color: #00529B;
+}
+.flash-message.help {
+	background-image: url("../images/layout/icons/help.png");
+}
+.flash-message.pin {
+	background-image: url("../images/layout/icons/pin.png");
+}
+.flash-message.download {
+	background-image: url("../images/layout/icons/download.png");
+}
+
+.datagrid {
+	width: 100%;
+}
+.datagrid input {
+	width: auto;
+}
+.datagrid table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.datagrid td, .datagrid th {
+	padding: 10px;
+}
+.datagrid .header th {
+	margin: 0 !important;
+}
+.datagrid .header th, .datagrid .header th a {
+	color: #555 !important;
+}
+.datagrid .header th, .datagrid .filters td {
+	border-bottom: #f3f3f3 1px solid;
+}
+.datagrid .header th p {
+	padding: 0;
+	margin: 0;
+}
+.datagrid .filters td input {
+	width: 98%;
+	margin: 0;
+}
+.datagrid .footer td {
+	border-top: #f3f3f3 1px solid;
+	font-size: 0.9em;
+}
+.datagrid input, .datagrid select {
+	display: inline;
+	margin: 0;
+}
+.datagrid .even td {
+	background-color: #f7f7f7;
+}
+.datagrid tr:hover td {
+	background-color: #f0f0f0;
+}
+.datagrid .paginator input, .datagrid .grid-info select {
+	padding: 2px;
+}
+.datagrid .paginator-controls label {
+	display: inline-block;
+	font-size: 1em;
+	font-weight: normal;
+}
+.datagrid .paginator-first, .datagrid .paginator-prev, .datagrid .paginator-next, .datagrid .paginator-last {
+	padding: 0 5px;
+	font-size: 0.9em;
+	color: #444;
+}
+.datagrid a .paginator-first, .datagrid a .paginator-prev, .datagrid a .paginator-next, .datagrid a .paginator-last {
+	color: #555;
+}
+.datagrid .paginator .inactive {
+	color: #c0c0c0;
+}
+.datagrid .paginator a:hover, .datagrid .paginator a:active, .datagrid .paginator a:focus {
+	text-decoration: none !important;
+}
+.datagrid .paginator a:hover span, .datagrid .paginator a:active span, .datagrid .paginator a:focus span {
+	color: #000 !important;
+}
+/*
+//TODO positioner
+//TODO paginator
+*/
+
+.image-box {
+	width: 110px;
+	float:left;
+	text-align: center;
+}
+.image-box a img {
+	border: 0px transparent none;
+}
+
+.popup-overlay {
+	position: absolute;
+	z-index: 5000;
+	background-color: #000;
+	top: 0;
+	left: 0;
+}
+.popup-window, .popup-window-dialog {
+	position: absolute;
+	z-index: 5001;
+	background-color: #fff;
+	color: #000;
+	left: 50%;
+}
+.popup-window {
+	top: 20px;
+	width: 800px;
+	margin: 0 0 0 -400px;
+}
+.popup-window .content-box {
+	margin: 0;
+	padding: 0;
+	border: transparent 0 none;
+}
+.popup-window .content-box h2 {
+	border: transparent 0 none;
+}
+.popup-window-dialog {
+	top: 50%;
+	width: 400px;
+	height: 100px;
+	margin: -50px 0 0 -200px;
+	text-align: center;
+}
+.popup-window a, .popup-window-dialog a {
+	color: #3b3b3b;
+	text-decoration: none;
+}
+.popup-window a:hover, .popup-window a:active, .popup-window a:focus, .popup-window-dialog a:hover, .popup-window-dialog a:active, .popup-window-dialog a:focus {
+	color: #000;
+	text-decoration: underline;
+}
+.ajax-spinner {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin: -15px 0 0 -15px;
+	background: white url('../images/layout/spinner.gif') no-repeat 50% 50%;
+	padding: 15px;
+	z-index: 10000;
+}
+
+#login-container #central-container {
+	background: transparent;
+	background-image: url("../images/layout/top-bg.png");
+	background-repeat: repeat-x;
+	color: #fff;
+}
+#login-container #header-container {
+	background: transparent;
+}
+#login-container #header-container a {
+	width: 220px;
+	height: 68px;
+	background-image: url("../images/layout/logo.png");
+	background-repeat: no-repeat;
+	display: block;
+	margin: 0 auto;
+}
+#login-container #header-container h1 {
+	display: none;
+}
+
+#login-container #footer-container {
+	text-align: center;
+}
+#login-container #footer-container img {
+	vertical-align: middle;
+	border: transparent 0 none;
+}
+#login-container #header-container {
+	padding: 120px 0 50px;
+}
+#login-container #page-container {
+	width: 200px;
+	padding-bottom: 70px;
+	margin: 0 auto;
+}
+#login-container #central-container input[type="text"], #login-container #central-container input[type="password"] {
+	width: 188px;
+}
+#login-container #central-container .list {
+	float: left;
+	padding-top: 25px;
+	padding-right: 9px;
+}
+#login-container #central-container .flash-message {
+	background-color: #000;
+	background-position: 5px center;
+	min-height: 20px !important;
+	padding: 5px 5px 5px 31px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	border-radius: 3px;
+	margin-bottom: 5px;
+}
+#login-container #central-container .flash-message.ok {
+	background-image: url("../images/layout/icons/ok-16.png");
+}
+#login-container #central-container .flash-message.info {
+	background-image: url("../images/layout/icons/tip-16.png");
+}
+#login-container #central-container .flash-message.caution {
+	background-image: url("../images/layout/icons/caution-16.png");
+}
+#login-container #central-container .flash-message.warning {
+	background-image: url("../images/layout/icons/warning-16.png");
+}
+#login-container #central-container .flash-message.error {
+	background-image: url("../images/layout/icons/error-16.png");
+}
+#login-container #central-container .flash-message.safety {
+	background-image: url("../images/layout/icons/safety-16.png");
+}
+#login-container #central-container a {
+	color: #5b5b5b;
+	text-decoration: none;
+	font-size: 0.9em;
+}
+#login-container #central-container a:hover, #login-container #central-container a:active, #login-container #central-container a:focus {
+	color: #ddd;
+	text-decoration: underline;
+}

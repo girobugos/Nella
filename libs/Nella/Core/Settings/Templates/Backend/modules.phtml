@@ -1,0 +1,19 @@
+{block #content}
+<table class="datagrid">
+	<thead>
+		<tr class="header">
+			<th><p>Name</p></th>
+			<th style="width: 50px;"><p>Version</p></th>
+			<th style="width: 50px;" class="actions"><p>Actions</p></th>
+		</tr>
+	</thead>
+	<tbody>
+		{foreach $modules as $module}
+		<tr{if $iterator->isEven()} class="even"{/if}>
+			<td>{$module->name}</td>
+			<td style="text-align: center;">{$module->version}</td>
+			<td class="actions">{if $module->installed}<a href="{plink uninstall!, 'id' => $module->id}">Uninstall</a>{ifset $module->newversion}&bnsp;|&nbsp;<a href="{plink upgrade!, 'id' => $module->id}">Upgrade to {$module->newversion}</a>{/if}{else}<a href="{plink install!, 'namespace' => $module->namespace}">Install</a>{/if}</td>
+		</tr>
+		{/foreach}
+	</tbody>
+</table>

@@ -1,0 +1,11 @@
+{block #perex}<p class="perex"><a href="{plink :Media:Backend:imageAdd}" class="add ajax-popup">Add new</a></p>{/block}
+{block #content}
+{ifset $images}
+{foreach $images as $image}
+	<div class="image-box">
+		<a href="{$basePath}/images/{$image->id}-800x600.{$image->suffix}" target="_blank"><img src="{$basePath}/images/{$image->id}-100x100.{$image->suffix}"></a>
+		<a href="{plink imageDelete, 'id' => $image->id}" class="ajax-dialog">Delete</a>
+	</div>
+{/foreach}
+<br style="clear: both;">
+{else}<p>No images found</p>{/if}

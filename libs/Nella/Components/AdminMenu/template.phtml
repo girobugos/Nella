@@ -1,0 +1,16 @@
+{block #list}
+{if count($nodes) > 0}
+<ul>
+	{foreach $nodes as $node}
+	{if $node->isAllowed()}
+	<li{if $node->ifCurrent($control->getPresenter())} class="active"{/if}>
+	<a href="{plink $node->plink}">{$node->name}</a>
+	{if $node->ifCurrent($control->getPresenter()) && $node->hasChilds()}
+		{include #list, nodes => $node->getChilds()}
+	{/if}
+	</li>
+	{/if}
+	{/foreach}
+</ul>
+{/if}
+{/block}

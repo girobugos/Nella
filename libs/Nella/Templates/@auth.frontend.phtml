@@ -1,0 +1,25 @@
+{extends "@layout.backend.phtml"}
+{block #body}
+	<body id="login-container">
+		<div id="central-container">
+			<div id="header-container">
+				<a href="http://nellacms.com" target="_blank"><h1>Nella - Content Management System</h1></a>
+			</div>
+			<div id="page-container">
+				{foreach $flashes as $message}
+				<div class="flash-message {$message->type}">
+					{$message->message}
+				</div>
+				{/foreach}
+				
+				{include #content}
+			</div>
+			
+			<div id="footer-container">
+				<p><a href="http://nettephp.com" title="Nette Framework" onclick="this.target='_blank';"><img src="http://nettephp.com/images/nette-powered.gif" width="80" height="15" alt="Nette Framework powered"></a> | 
+				<a href="http://dibiphp.com" title="dibi - tiny 'n' smart database abstraction layer" onclick="this.target='_blank';"><img src="http://dibiphp.com/images/dibi-powered.gif" width="80" height="15" alt="dibi powered"></a> | 
+				<a href="http://nellacms.com" title="Nella - Content Management System" onclick="this.target='_blank';"><img src="http://nellacms.com/images/nella-powered.gif" width="80" height="15" alt="Nella - Content Management System powered"></a></p>
+			</div>
+		</div>
+	</body>
+</html>

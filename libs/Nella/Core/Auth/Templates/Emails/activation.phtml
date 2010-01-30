@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="{$langIso639}">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="Content-Language" content="{$langIso639}">
+		<meta http-equiv="X-UA-Compatible" content="IE=8;FF=3;OtherUA=4">
+		
+		<meta name="author" content="Patrik Votoček (Vrtak-CZ); http://patrik.votocek.cz; patrik[at]votocek.cz">
+		<meta name="copyright" content="Nella Team, http://nellacms.com/team, 2008-2009">
+		<meta name="generator" content="Nella, nellacms.com">
+	
+		<title>{$title}</title>
+
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<meta http-equiv="Content-Script-Type" content="text/javascript"></head>
+	<body>
+		<p>User activation</p>
+		<table>
+			<tr>
+				<th>Username:</th>
+				<td>{$username}</td>
+			</tr>
+			<tr>
+				<th>Password:</th>
+				<td>{$password}</td>
+			</tr>
+			<tr>
+				<th>Activation key:</th>
+				<td>{$key}</td>
+			</tr>
+			<tr>
+				<th>Activation link:</th>
+				<td><a href="{plink //:Auth:Frontend:activation 'username' => $username, 'key' => $key}">{plink //:Auth:Frontend:activation 'username' => $username, 'key' => $key}</a></td>
+			</tr>
+		</table>
+		<p>Thanks <b>{$webname}</b></p>
+	</body>
+</html>

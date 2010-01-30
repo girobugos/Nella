@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="{$langIso639}">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="Content-Language" content="{$langIso639}">
+		<meta http-equiv="X-UA-Compatible" content="IE=8;FF=3;OtherUA=4">
+		
+		<meta name="author" content="Patrik Votoček (Vrtak-CZ); http://patrik.votocek.cz; patrik[at]votocek.cz">
+		<meta name="copyright" content="Nella Team, http://nellacms.com/team, 2008-2009">
+		<meta name="generator" content="Nella, nellacms.com">
+	
+		<title>{block #title}{ifset $title}{$title} - {/if}{$webname}{/block}</title>
+		
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<meta http-equiv="Content-Script-Type" content="text/javascript">
+		
+		{ifset $keywords}<meta name="keywords" content="{$keywords}">{/if}
+		{ifset $description}<meta name="description" content="{$description}">{/if}
+		{ifset $robots}<meta name="robots" content="{$robots}">{/if}
+		
+		<link rel="shortcut icon" href="{$basePath}/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="{$basePath}/css/backend.css" type="text/css" media="screen, projection,tv">
+		
+		<script type="text/javascript" src="{$basePath}/js/jquery-1.4.1.min.js"></script>
+		<script type="text/javascript" src="{$basePath}/js/jquery.livequery.js"></script>
+		<script type="text/javascript" src="{$basePath}/js/jquery.nella.js"></script>
+		{widget editor}
+		
+		{block #header}{/block}
+	</head>
+	@{block #body}
+	<body>
+		<div id="central-container">
+			<div id="header-container">
+				<h1 class="webinfo">{$webname}</h1>
+				<p class="userinfo">Logged as <a href="{plink :Auth:Backend:profile}">{$user}</a> | <a href="{plink :Auth:Backend:logout}">Logout</a></p>
+			</div>
+			<div id="page-container">
+				<div id="left-container">
+					<div id="logo"><span>Nella - Content Management System</span></div>
+					{!$presenter['adminMenu']->render()}
+				</div>
+				<div id="content-container">
+					<div class="content-title">
+					{ifset $module}<h1>{$module}</h1>{/if}
+					{block #perex}{/block}
+					</div>
+					@{block #block}
+					{snippet content}
+					<div class="content-box">
+						<h2>{ifset $action}{$action}{else}&nbsp;{/if}</h2>
+						<div id="content-inner">
+						{foreach $flashes as $message}
+						<div class="flash-message {$message->type}">
+							{$message->message}
+						</div>
+						{/foreach}
+						
+						@{include #content}
+						</div>
+					</div>
+					{/snippet}
+					@{/block}
+				</div>
+			</div>
+			<div id="footer-container">
+				<p class="thanks">Thanks for using <a href="http://nellacms.com" target="_blank">Nella</a></p>
+				<p class="version">Version {*$version*}</p>
+			</div>
+		</div>
+	</body>
+	@{/block}
+</html>

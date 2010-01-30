@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="{$langIso639}">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="Content-Language" content="{$langIso639}">
+		<meta http-equiv="X-UA-Compatible" content="IE=8;FF=3;OtherUA=4">
+		
+		<meta name="author" content="Patrik Votoček (Vrtak-CZ); http://patrik.votocek.cz; patrik[at]votocek.cz">
+		<meta name="copyright" content="Nella Team, http://nellacms.com/team, 2008-2009">
+		<meta name="generator" content="Nella, nellacms.com">
+	
+		<title>{block #title}{ifset $title}{$title} - {/if}{$webname}{/block}</title>
+		
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<meta http-equiv="Content-Script-Type" content="text/javascript">
+		
+		{ifset $keywords}<meta name="keywords" content="{$keywords}">{/if}
+		{ifset $description}<meta name="description" content="{$description}">{/if}
+		{ifset $robots}<meta name="robots" content="{$robots}">{/if}
+		
+		<link rel="shortcut icon" href="{$basePath}/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="{$basePath}/css/screen.css" type="text/css" media="screen, projection,tv">
+	</head>
+	<body>
+		<h1><a href="#">Nella</a></h1>
+		<div id="content">
+			{include #content}
+		</div>
+		<div id="footer">
+			<p>Copyright &copy; 2010 <a href="http://nellacms.com/team" onclick="this.target='_blank';">Nella Team</a></p>
+			<p><a href="http://nettephp.com" title="Nette Framework" onclick="this.target='_blank';"><img src="http://nettephp.com/images/nette-powered.gif" width="80" height="15" alt="Nette Framework powered"></a> | 
+			<a href="http://dibiphp.com" title="dibi - tiny 'n' smart database abstraction layer" onclick="this.target='_blank';"><img src="http://dibiphp.com/images/dibi-powered.gif" width="80" height="15" alt="dibi powered"></a> | 
+			<a href="http://nellacms.com" title="Nella - Content Management System" onclick="this.target='_blank';"><img src="http://nellacms.com/images/nella-powered.gif" width="80" height="15" alt="Nella - Content Management System powered"></a></p>
+		</div>
+		{if !empty($gacode)}{widget googleAnalytics $gacode}{/if}
+	</body>
+</html>

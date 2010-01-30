@@ -1,0 +1,10 @@
+{block #content}
+<h1>{$name}</h1>
+{!$data}
+{ifset $pages}
+<ul>
+	{foreach $pages as $page}
+	<li><a href="{plink this 'slug' => $page->slug}">{$page->name}</a></li>
+	{/foreach}
+</ul>
+{/if}
