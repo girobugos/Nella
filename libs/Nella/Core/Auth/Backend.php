@@ -156,7 +156,7 @@ class Backend extends Nella\Presenters\BackendBase
 		if (Nella\Nella::getUser()->id == $id && !Nette\Environment::getUser()->isAllowed("Auth", "superadmin"))
 			$this->flashMessage("You can not edit yourself", "error");
 		elseif (empty($user))
-			$this->flashMessage("User not exist", "error");
+			$this->flashMessage("User doesn't exist", "error");
 		elseif ($user->status == Models\User::STATUS_ACTIVE)
 			$this->flashMessage("This user is active", "warning");
 		else
@@ -179,7 +179,7 @@ class Backend extends Nella\Presenters\BackendBase
 		if (Nella\Nella::getUser()->id == $id && !Nette\Environment::getUser()->isAllowed("Auth", "superadmin"))
 			$this->flashMessage("You can not edit yourself", "error");
 		elseif (empty($user))
-			$this->flashMessage("User not exist", "error");
+			$this->flashMessage("User doesn't exist", "error");
 		elseif ($user->status == Models\User::STATUS_UNACTIVE)
 			$this->flashMessage("This user is deactive", "warning");
 		else
@@ -202,7 +202,7 @@ class Backend extends Nella\Presenters\BackendBase
 		if (Nella\Nella::getUser()->id == $id && !Nette\Environment::getUser()->isAllowed("Auth", "superadmin"))
 			$this->flashMessage("You can not edit yourself", "error");
 		elseif (empty($user))
-			$this->flashMessage("User not exist", "error");
+			$this->flashMessage("User doesn't exist", "error");
 		elseif ($user->status == Models\User::STATUS_BANNED)
 			$this->flashMessage("This user is banned", "warning");
 		else
@@ -225,7 +225,7 @@ class Backend extends Nella\Presenters\BackendBase
 		if (Nella\Nella::getUser()->id == $id && !Nette\Environment::getUser()->isAllowed("Auth", "superadmin"))
 			$this->flashMessage("You can not edit yourself", "error");
 		elseif (empty($user))
-			$this->flashMessage("User not exist", "error");
+			$this->flashMessage("User doesn't exist", "error");
 		elseif ($user->status == Models\User::STATUS_SUSPENDED)
 			$this->flashMessage("This user is suspend", "warning");
 		else
@@ -451,7 +451,7 @@ class Backend extends Nella\Presenters\BackendBase
 		}
 		elseif (empty($user))
 		{
-			$this->flashMessage("User not exist", "error");
+			$this->flashMessage("User doesn't exist", "error");
 			$this->redirect("list");
 		}
 		else
@@ -482,7 +482,7 @@ class Backend extends Nella\Presenters\BackendBase
 		$user = Models\User::findById($values['user_id']);
 		if (empty($user))
 		{
-			$this->flashMessage("User not exist", "error");
+			$this->flashMessage("User doesn't exist", "error");
 			$this->redirect("list");
 		}
 		else

@@ -439,7 +439,7 @@ class Frontend extends Nella\Presenters\Base
 		{
 			$token = Models\UserToken::find(array("[user_id] = " . $user->id, "[type] = " . Models\UserToken::TYPE_LOSTPASSWORD));
 			if (count($token) <= 0)
-				$this->flashMessage("Lost password key not exist", "warning");
+				$this->flashMessage("Lost password key doesn't exist", "warning");
 			elseif ($token[0]->key != $form['key']->getValue())
 				$form['key']->addError("Bad key");
 			else

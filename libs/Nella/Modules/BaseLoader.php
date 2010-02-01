@@ -68,7 +68,7 @@ abstract class BaseLoader extends \Nette\Object
 	}
 	
 	/**
-	 * Is action automaticly allowed?
+	 * Is action automatically allowed?
 	 * 
 	 * @param	string
 	 * @return	bool
@@ -79,7 +79,7 @@ abstract class BaseLoader extends \Nette\Object
 	}
 	
 	/**
-	 * Is signal automaticly allowed?
+	 * Is signal automatically allowed?
 	 * 
 	 * @param	string
 	 * @return	bool
