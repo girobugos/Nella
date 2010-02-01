@@ -170,7 +170,7 @@ final class Nella
 			}
 		}
 		
-		if (!isset($cache['classes']))
+		if (!isset($cache['classes']) && isset($cls))
 		{
 			$cache->save('classes', $cls, array(
 				'expire' => "+2days",
