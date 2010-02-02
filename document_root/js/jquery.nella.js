@@ -43,7 +43,6 @@ jQuery.extend({
 		},
 		
 		renderPopupDialog: function(url) {
-			alert(url);
 			jQuery.getJSON(url, function(data) {
 				jQuery('<div />').addClass("popup-window-dialog").appendTo(document.body);
 				jQuery('<p>'+data.question+'</p>').appendTo('.popup-window-dialog');
