@@ -195,7 +195,7 @@ INSERT INTO `userprivileges` (`user_id`, `resource`, `privilege`) VALUES
 (1, 'Settings', 'modules'),
 (1, 'Page', 'create'),
 (1, 'Page', 'delete'),
-(1, 'Page', 'publicate'),
+(1, 'Page', 'publish'),
 (1, 'Page', 'edit'),
 (1, 'Page', 'list'),
 (1, 'Media', 'images');
