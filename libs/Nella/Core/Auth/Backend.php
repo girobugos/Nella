@@ -558,9 +558,10 @@ class Backend extends Nella\Presenters\BackendBase
 	 */
 	public function processUserAddForm(Nette\Forms\Form $form)
 	{
-		if (Models\Users::isUsernameExist($form['username']->getValue()))
+		//TODO: fix sqlInjection -> convert to dibi style
+		if (Models\User::count("[username] = '" . $form['username']->getValue() ."'"))
 			$form['username']->addError("This username is exist");
-		elseif (Models\Users::isMailExist($form['mail']->getValue()))
+		elseif (Models\User::count("[mail] = '". $form['mail']->getValue()) . "'")
 			$form['mail']->addError("This e-mail registered withd another user");
 		else
 		{
