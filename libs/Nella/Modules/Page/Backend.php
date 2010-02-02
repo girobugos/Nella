@@ -54,10 +54,10 @@ class Backend extends \Nella\Presenters\BackendBase
 		$grid['lang']->getCellPrototype()->addStyle('text-align: center');
 		$grid->addActionColumn('Actions')->getHeaderPrototype()->addStyle('width: 98px');
 		$grid->addAction("Delete", "delete", NULL, "ajax-dialog");
-		if (Nette\Environment::getUser()->isAllowed('Page', "publicate"))
+		if (Nette\Environment::getUser()->isAllowed('Page', "publish"))
 		{
-			$grid->addAction("Publish", "publicate", NULL, "ajax-dialog")->ifCallback = function ($data) { if ($data['status'] == Models\Page::STATUS_PUBLIC) return FALSE; else return TRUE; };
-			$grid->addAction("Unpublicate", "unpublicate", NULL, "ajax-dialog")->ifCallback = function ($data) { if ($data['status'] == Models\Page::STATUS_CONCEPT) return FALSE; else return TRUE; };
+			$grid->addAction("Publish", "publish", NULL, "ajax-dialog")->ifCallback = function ($data) { if ($data['status'] == Models\Page::STATUS_PUBLIC) return FALSE; else return TRUE; };
+			$grid->addAction("Unpublish", "unpublish", NULL, "ajax-dialog")->ifCallback = function ($data) { if ($data['status'] == Models\Page::STATUS_CONCEPT) return FALSE; else return TRUE; };
 		}
 		$grid->addAction("Edit", "edit", NULL, "ajax-popup");
 	}
@@ -91,8 +91,8 @@ class Backend extends \Nella\Presenters\BackendBase
 		$form->addSelect('lang', "Language: ", array('en' => "English"));
 		
 		$form->addSubmit('sub', "Save as concept");
-		if (Nette\Environment::getUser()->isAllowed('Page', "publicate"))
-			$form->addSubmit('publicate', "Publish");
+		if (Nette\Environment::getUser()->isAllowed('Page', "publish"))
+			$form->addSubmit('publish', "Publish");
 		
 		$form->setDefaults(array('lang' => $this->lang));
 			
@@ -124,7 +124,7 @@ class Backend extends \Nella\Presenters\BackendBase
 				}
 			}
 			
-			if ($form['publicate']->isSubmittedBy())
+			if ($form['publish']->isSubmittedBy())
 				Models\Page::createNew($values['name'], $values['lang'], $slug, $values['text'], $values['keywords'], $values['description'], 1, Models\Page::STATUS_PUBLIC);
 			else
 				Models\Page::createNew($values['name'], $values['lang'], $slug, $values['text'], $values['keywords'], $values['description'], 1, Models\Page::STATUS_CONCEPT);
@@ -189,13 +189,13 @@ class Backend extends \Nella\Presenters\BackendBase
 	}
 	
 	/**
-	 * Action publicate
+	 * Action publish
 	 * 
 	 * @param	int	page id
 	 */
-	public function actionPublicate($id)
+	public function actionPublish($id)
 	{
-		$this->template->action = "Publicate";
+		$this->template->action = "Publish";
 		$page = Models\Page::findById($id);
 		if (empty($page))
 		{
@@ -209,8 +209,8 @@ class Backend extends \Nella\Presenters\BackendBase
 		}
 		else
 		{
-			$this['dialog']->question = "Realy publicate '".$page->name."'?";
-			$this['dialog']->yesLink = $this->link('publicate!', array('id' => $id));
+			$this['dialog']->question = "Realy publish '".$page->name."'?";
+			$this['dialog']->yesLink = $this->link('publish!', array('id' => $id));
 		}
 
 		if ($this->isAjax())
@@ -218,11 +218,11 @@ class Backend extends \Nella\Presenters\BackendBase
 	}
 	
 	/**
-	 * Process publicate signal
+	 * Process publish signal
 	 * 
 	 * @param	int	page id
 	 */
-	public function handlePublicate($id)
+	public function handlePublish($id)
 	{
 		$page = Models\Page::findById($id);
 		if (empty($page))
@@ -239,19 +239,19 @@ class Backend extends \Nella\Presenters\BackendBase
 		{
 			$page->status = Models\Page::STATUS_PUBLIC;
 			$page->save();
-			$this->flashMessage("Page mark as pubic", "ok");
+			$this->flashMessage("Page marked as pubic", "ok");
 			$this->redirect("list");
 		}
 	}
 	
 	/**
-	 * Action unpublicate
+	 * Action unpublish
 	 * 
 	 * @param	int	page id
 	 */
-	public function actionUnpublicate($id)
+	public function actionUnpublish($id)
 	{
-		$this->template->action = "Unpublicate";
+		$this->template->action = "Unpublish";
 		$page = Models\Page::findById($id);
 		if (empty($page))
 		{
@@ -265,8 +265,8 @@ class Backend extends \Nella\Presenters\BackendBase
 		}
 		else
 		{
-			$this['dialog']->question = "Realy mark as concept '".$page->name."'?";
-			$this['dialog']->yesLink = $this->link('unpublicate!', array('id' => $id));
+			$this['dialog']->question = "Realy marked as concept '".$page->name."'?";
+			$this['dialog']->yesLink = $this->link('unpublish!', array('id' => $id));
 		}
 
 		if ($this->isAjax())
@@ -274,11 +274,11 @@ class Backend extends \Nella\Presenters\BackendBase
 	}
 	
 	/**
-	 * Process unpublicate signal
+	 * Process unpublish signal
 	 * 
 	 * @param	int	page id
 	 */
-	public function handleUnpublicate($id)
+	public function handleUnpublish($id)
 	{
 		$page = Models\Page::findById($id);
 		if (empty($page))
@@ -295,7 +295,7 @@ class Backend extends \Nella\Presenters\BackendBase
 		{
 			$page->status = Models\Page::STATUS_CONCEPT;
 			$page->save();
-			$this->flashMessage("Page mark as concept", "ok");
+			$this->flashMessage("Page marked as concept", "ok");
 			$this->redirect("list");
 		}
 	}
@@ -345,7 +345,7 @@ class Backend extends \Nella\Presenters\BackendBase
 			$page->description = $form['description']->getValue();
 			$page->text = $form['text']->getValue();
 			$page->save();
-			$this->flashMessage("Page changes save", "ok");
+			$this->flashMessage("Page changes saved", "ok");
 			$this->redirect('list');
 		}
 	}

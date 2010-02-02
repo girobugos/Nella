@@ -37,16 +37,16 @@ abstract class Loader extends \Nella\Modules\BaseLoader
 	protected static $actionPermissions = array(
 			"add" => "create",
 			"delete" => "delete",
-			"publicate" => "publicate",
-			"unpublicate" => "publicate",
+			"publish" => "publish",
+			"unpublish" => "publish",
 			"edit" => "edit",
 			"backToRevision" => "edit",
 			"list" => "list");
 	/** @var array */
 	protected static $signalPermissions = array(
 			"delete" => "delete",
-			"publicate" => "publicate",
-			"unpublicate" => "publicate",
+			"publish" => "publish",
+			"unpublish" => "publish",
 			"backToRevision" => "edit",
 			"listDataGrid-order" => "list",
 			"listDataGrid-form"	=> "list");
@@ -65,8 +65,8 @@ abstract class Loader extends \Nella\Modules\BaseLoader
 		$node = Nella::addRootAdminNode(self::NAME, ":Page:Backend:list", "Page", "list");
 		$node->addHiddenChild(":Page:Backend:add");
 		$node->addHiddenChild(":Page:Backend:delete");
-		$node->addHiddenChild(":Page:Backend:publicate");
-		$node->addHiddenChild(":Page:Backend:unpublicate");
+		$node->addHiddenChild(":Page:Backend:publish");
+		$node->addHiddenChild(":Page:Backend:unpublish");
 		$node->addHiddenChild(":Page:Backend:edit");
 		$node->addHiddenChild(":Page:Backend:backToRevision");
 	}
