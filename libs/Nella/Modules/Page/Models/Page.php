@@ -19,7 +19,7 @@
 namespace Nella\Modules\Page\Models;
 
 use dibi;
-use Nella\Core\Auth\Models\User;
+use Nella\Models\User;
 
 /**
  * Page model for page module

@@ -20,6 +20,7 @@ namespace Nella\Core\Media;
 
 use Nette;
 use Nella;
+use Nella\Models;
 use Nette\Forms\Form;
 
 /**

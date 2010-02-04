@@ -18,8 +18,8 @@
 
 namespace Nella\Security;
 
-use Nella\Core\Auth\Models\User;
-use Nella\Core\Auth\Models\UserToken;
+use Nella\Models\User;
+use Nella\Models\UserToken;
 use Nette\Security\Identity;
 use Nette\Security\AuthenticationException;
 

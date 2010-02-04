@@ -42,7 +42,7 @@ final class Nella
 	private static $options = array();
 	/** @var array */
 	private static $adminNodes = array();
-	/** @var Nella\Core\Auth\Models\User */
+	/** @var Nella\Models\User */
 	private static $user = NULL;
 
 
@@ -118,7 +118,7 @@ final class Nella
 		else
 		{
 			static::$adminNodes[] = new Node("Dashboard", ":Dashboard:Backend:default", "Dashboard", "default");
-			$modules = Core\Settings\Models\Module::findAll();
+			$modules = Models\Module::findAll();
 			if (count($modules) > 0)
 			{
 				foreach ($modules as $module)
@@ -154,7 +154,7 @@ final class Nella
 	{
 		$cache = self::getCache();
 		if (!isset($cache['classes']))
-			$modules = Core\Settings\Models\Module::findAll();
+			$modules = Models\Module::findAll();
 		else
 			$modules = $cache['classes'];
 		if (count($modules) > 0)
@@ -162,7 +162,7 @@ final class Nella
 			$cls = array();
 			foreach ($modules as $module)
 			{
-				if ($module instanceof Core\Settings\Models\Module)
+				if ($module instanceof Models\Module)
 					$class = $module->getLoaderClass();
 				else
 					$cls[] = $class = $module;
@@ -195,7 +195,7 @@ final class Nella
 			$cache = self::getCache();
 			if (!isset($cache['options']))
 			{
-				$rows = Core\Settings\Models\Option::findAll();
+				$rows = Models\Option::findAll();
 				foreach ($rows as $row)
 					static::$options[$row->key] = $row->value;
 
@@ -253,12 +253,12 @@ final class Nella
 	/**
 	 * Get user
 	 *
-	 * @return Nella\Core\Auth\Models\User
+	 * @return Nella\Models\User
 	 */
 	public static function getUser()
 	{
 		if (empty(static::$user))
-			static::$user = Core\Auth\Models\User::findByUsername(Nette\Environment::getUser()->getIdentity()->getName());
+			static::$user = Models\User::findByUsername(Nette\Environment::getUser()->getIdentity()->getName());
 		return static::$user;
 	}
 }

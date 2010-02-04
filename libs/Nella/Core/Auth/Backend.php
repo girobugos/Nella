@@ -20,6 +20,7 @@ namespace Nella\Core\Auth;
 
 use Nette;
 use Nella;
+use Nella\Models;
 use Nette\Forms\Form;
 
 /**
@@ -416,7 +417,7 @@ class Backend extends Nella\Presenters\BackendBase
 		$gr->add($form->addCheckbox('Settings_modules', "Modules"));
 		$gr->add($form->addCheckbox('Dashboard_default', "Admin"));
 		$gr->add($form->addCheckbox('Auth_superadmin', "SuperAdmin"));
-		$modules = Nella\Core\Settings\Models\Module::findAll();
+		$modules = Nella\Models\Module::findAll();
 		if (count($modules) > 0)
 		{
 			foreach ($modules as $module)

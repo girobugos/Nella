@@ -20,6 +20,7 @@ namespace Nella\Core\Auth;
 
 use Nette;
 use Nella;
+use Nella\Models;
 use Nette\Forms\Form;
 use Nette\Security\AuthenticationException;
 

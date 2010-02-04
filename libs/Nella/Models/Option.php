@@ -13,17 +13,17 @@
  * @license    http://nellacms.com/license  New BSD License
  * @link       http://nellacms.com
  * @category   Nella
- * @package    Nella\Core\Settings\Models
+ * @package    Nella\Models
  */
 
-namespace Nella\Core\Settings\Models;
+namespace Nella\Models;
 
 /**
  * Option model
  *
  * @author     Patrik Votoček
  * @copyright  Copyright (c) 2006, 2010 Patrik Votoček
- * @package    Nella\Core\Settings\Models
+ * @package    Nella\Models
  * @property-read	int	$id
  * @property	string	$key
  * @property	string	$value

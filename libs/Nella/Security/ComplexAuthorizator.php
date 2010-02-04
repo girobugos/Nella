@@ -18,7 +18,7 @@
 
 namespace Nella\Security;
 
-use Nella\Core\Auth\Models\UserPrivilege;
+use Nella\Models\UserPrivilege;
 use Nella\Nella;
 
 /**

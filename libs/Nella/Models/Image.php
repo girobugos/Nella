@@ -13,13 +13,12 @@
  * @license    http://nellacms.com/license  New BSD License
  * @link       http://nellacms.com
  * @category   Nella
- * @package    Nella\Core\Media\Models
+ * @package    Nella\Models
  */
 
-namespace Nella\Core\Media\Models;
+namespace Nella\Models;
 
 use Nette;
-use Nella\Core\Auth\Models\User;
 
 /**
  * Image model
@@ -30,7 +29,7 @@ use Nella\Core\Auth\Models\User;
  * @property-read	int	$id
  * @property	string		$suffix
  * @property	DateTime	$datetime
- * @belongsTo(Nella\Core\Auth\Models\User)
+ * @belongsTo(Nella\Models\User)
  */
 class Image extends \ActiveRecord
 {

@@ -13,10 +13,10 @@
  * @license    http://nellacms.com/license  New BSD License
  * @link       http://nellacms.com
  * @category   Nella
- * @package    Nella\Core\Auth\Models
+ * @package    Nella\Models
  */
 
-namespace Nella\Core\Auth\Models;
+namespace Nella\Models;
 
 use Nella;
 
@@ -25,14 +25,14 @@ use Nella;
  *
  * @author     Patrik Votoček
  * @copyright  Copyright (c) 2006, 2010 Patrik Votoček
- * @package    Nella\Core\Auth\Models
+ * @package    Nella\Models
  * @property-read	int	$id
  * @property	string	$username
  * @property	string	$password
  * @property	string	$mail
  * @property	int		$status
- * @hasMany(Nella\Core\Auth\Models\UserToken)
- * @hasMany(Nella\Core\Auth\Models\UserPrivilege)
+ * @hasMany(Nella\Models\UserToken)
+ * @hasMany(Nella\Models\UserPrivilege)
  */
 class User extends \ActiveRecord
 {

@@ -19,6 +19,7 @@
 namespace Nella\Core\Settings;
 
 use Nella\Nella;
+use Nella\Models;
 use Nette\Forms\Form;
 
 /**

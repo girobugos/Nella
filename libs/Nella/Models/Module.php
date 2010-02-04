@@ -13,10 +13,10 @@
  * @license    http://nellacms.com/license  New BSD License
  * @link       http://nellacms.com
  * @category   Nella
- * @package    Nella\Core\Settings\Models
+ * @package    Nella\Models
  */
 
-namespace Nella\Core\Settings\Models;
+namespace Nella\Models;
 
 use Nella\Nella;
 
@@ -25,7 +25,7 @@ use Nella\Nella;
  *
  * @author     Patrik Votoček
  * @copyright  Copyright (c) 2006, 2010 Patrik Votoček
- * @package    Nella\Core\Settings\Models
+ * @package    Nella\Models
  * @property-read	int	$id
  * @property	string	$name
  * @property	string	$namespacename
@@ -58,7 +58,7 @@ class Module extends \ActiveRecord
 	 * @param	string
 	 * @param	string	namespace name in app (Backend, Frontend etd. added automaticly)
 	 * @param	string
-	 * @return	Nella\Core\Modules\Models\Module
+	 * @return	Nella\Models\Module
 	 */
 	public static function createNew($name, $namespacename, $version)
 	{

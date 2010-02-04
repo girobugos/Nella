@@ -13,22 +13,22 @@
  * @license    http://nellacms.com/license  New BSD License
  * @link       http://nellacms.com
  * @category   Nella
- * @package    Nella\Core\Auth\Models
+ * @package    Nella\Models
  */
 
-namespace Nella\Core\Auth\Models;
+namespace Nella\Models;
 
 /**
  * User tokens model
  *
  * @author     Patrik Votoček
  * @copyright  Copyright (c) 2006, 2010 Patrik Votoček
- * @package    Nella\Core\Auth\Models
+ * @package    Nella\Models
  * @property-read	int	$id
  * @property	string		$key
  * @property	DateTime	$created
  * @property	int			$type
- * @belongsTo(Nella\Core\Auth\Models\User)
+ * @belongsTo(Nella\Models\User)
  */
 class UserToken extends \ActiveRecord
 {

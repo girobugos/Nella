@@ -19,6 +19,7 @@
 namespace Nella\Core\Media;
 
 use Nette;
+use Nella\Models;
 
 /**
  * Frontend media
